@@ -1,29 +1,15 @@
-# bai1
+## Fixes
 
-This template should help get you started developing with Vue 3 in Vite.
+### Xem git diff để biết rõ phần nào thay đổi
 
-## Recommended IDE Setup
+- Thêm mới thư mục 'http' và config cho axios:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```
+Thư mục /src/http chứa các modules, trong đó có các request sẽ dùng trong các thẻ view. Gom các request vào cùng một thư mục và có phân loại theo chủ đề để dễ dàng quản lý, tìm kiếm & sửa lỗi.
 ```
 
-### Compile and Hot-Reload for Development
+- Thêm mới file .env. [Đọc thêm về .env](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa)
 
-```sh
-npm run dev
 ```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
+Trong /src/http/config.js, set 'baseUrl: import.meta.env.VITE_API_URL' tức là sử dụng serve ở địa chỉ import.meta.env.VITE_API_URL. Thay đổi giá trị này trong file .env
 ```
