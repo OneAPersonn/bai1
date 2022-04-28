@@ -64,6 +64,7 @@
 import add from "./components/add.vue";
 import axios from "axios";
 export default {
+  inject: [ '$httpApi' ],
   data() {
     return {
       list: [
@@ -122,32 +123,39 @@ export default {
       this.user = user;
     },
     clickSave() {
-var data = JSON.stringify({
-  "username": "a",
-  "password": "p",
-  "fname": "f",
-  "lname": "l",
-  "activity": 1
-});
+      var data = JSON.stringify({
+        "username": "a",
+        "password": "p",
+        "fname": "f",
+        "lname": "l",
+        "activity": 1
+      });
 
-var config = {
-  method: 'post',
-  url: 'http://192.168.113.29:8080/api/v1/Products/insert',
-  headers: { 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
+      // var config = {
+      //   method: 'post',
+      //   url: 'http://192.168.113.29:8080/api/v1/Products/insert',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   data : data
+      // };
 
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
-      // axios.get("http://192.168.113.29:8080/api/v1/Products/insert")
-      // .then(response => this.userId = response.data.id);
+      // axios(config)
+      // .then(function (response) {
+      //   console.log(JSON.stringify(response.data));
+      // })
+      // .catch(function (error) {
+      //   console.log(error);
+      // });
+      alert("Hello")
+      this.$httpApi.test.test1(data)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+
     },
     clickEdit(user) {
       this.user = user;
@@ -160,42 +168,10 @@ axios(config)
     };
   },
   created() {
-  //   const user = { title: "Vue POST Request Example" };
-  //   const headers = {
-  //   "Content-Type": "application/json",
-  //   Authorization: apiKey,
-  // };
-  // const url = "localhost:5000/api/expenses/get-expenses";
-
   // axios.get(url, { headers });
   //   axios.post("http://192.168.113.29:8080/api/v1/Products/insert",headers, this.user)
   //     .then(response => this.userId = response.data.id);
-var axios = require('axios');
-var data = JSON.stringify({
-  "username": "a",
-  "password": "p",
-  "fname": "f",
-  "lname": "l",
-  "activity": 1
-});
-
-var config = {
-  method: 'post',
-  url: 'http://192.168.113.29:8080/api/v1/Products/insert',
-  headers: { 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
-
-axios(config)
-.then(function (response) {
-  console.log("request after created: ", JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
-
+  console.log('import.meta.env.VITE_API_URL: ', import.meta.env.VITE_API_URL)
   }
 
   
